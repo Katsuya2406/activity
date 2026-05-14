@@ -1,6 +1,7 @@
 #include "Student.h"
 #include <string>
 #include <math.h>
+#include <iostream>
 
 using namespace std;
 Student::Student(){
@@ -40,33 +41,21 @@ int Student::getYearLevel(){
 	return yearlevel;
 }
 
-
 void Student::displayInfo() {
-    cout << "Student Info: \n";
-    
-    // Use the member functions directly with parentheses
-    cout << "Name: " << getName() << endl;
-    cout << "Student ID: " << getStudentID() << endl;
-    cout << "Year Level: " << getYearlevel() << endl;
-    
-    // If you prefer accessing member variables directly (assuming they exist):
-    // cout << "Name: " << name << endl;
+    // Remove 'return' from this line
+    cout << "Student Info: \n"; 
+    cout << "Name: " << name << endl;
+    cout << "Student ID: " << studentID << endl;
+    cout << "Year Level: " << yearlevel << endl;
 }
+ 
 
-bool Student::isSenior() {
-    if (ylvl == 4) {
-        cout << "This student is a Senior" << endl;
-        return true;  
-    }
-    else {
-        cout << "This student is not yet a senior" << endl;
-        return false; 
-    }
+bool Student::isSenior()  {
+    return yearlevel >= 4; // Returns true if 4 or higher
 }
-
 
 int Student::yearsUntilGraduation() {
-    return 4 - ylvl;
+    int remaining = 4 - yearlevel;
+    return (remaining < 0) ? 0 : remaining; // Prevents negative years
 }
-
 
